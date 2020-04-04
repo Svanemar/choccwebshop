@@ -45,7 +45,15 @@
 	border-top-right-radius: 45px;
 	border-top-left-radius: 45px;
 }
+.linkstart {
+	color: dimgray;
 
+}
+.linkstart:hover {
+	color: lightgray;
+	font-size: 1.4em;
+
+}
 #img-container1 {
 	background-image: url('/static/images/food.jpg');
 }

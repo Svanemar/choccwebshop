@@ -54,7 +54,7 @@ app.use("/", require("./router/adminRouter"));
 app.use("/admin", require("./router/adminRouter"));
 
 //listen to port
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 const options = {
 	useUnifiedTopology: true,
 	useNewUrlParser: true
