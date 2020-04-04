@@ -1,0 +1,17 @@
+<%- include("header.ejs") %><% products.forEach((product) => { %>
+<p class="alignCenter"><%= product.street %></p>
+<p class="alignCenter"><%= product.productprice %></p>
+<% }) %>
+
+<button id="btn" class="btnAlign">Buy</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    var stripe = Stripe('<%= Stripe_Public_Key %>');
+    document.querySelector('#btn').addEventListener('click', () => {
+        stripe.redirectToCheckout({
+            sessionId: '<%= sessionId %>'
+        });
+    });
+</script>

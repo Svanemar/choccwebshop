@@ -1,0 +1,115 @@
+<%- include("header.ejs")%>
+<%- include("menu.ejs") %>
+<title>C H O C C - Checkout</title>
+
+<body>
+	<div class="checkout">
+		<% products.forEach((product) => { %>
+
+		<div class="products">
+			<div class="checkout-img">
+				<img class="apt-photo" src="<%= product.url1 %>" />
+			</div>
+			<div class="checkout-header">
+
+				<table>
+
+					<tr>
+						<td class="pro-table-Info" colspan="2"></td>
+					</tr>
+					<tr>
+
+						<td class="pro-table-Title" colspan="2"><%= product.city %></td>
+
+					</tr>
+					<tr>
+						<td class="pro-table-Title">Location:</td>
+						<td class="pro-table-Info"><%= product.street %></td>
+					</tr>
+					<tr>
+						<td class="pro-table-Title">Room:</td>
+						<td class="pro-table-Info"><%= product.room %></td>
+
+					</tr>
+					<tr>
+						<td class="pro-table-Title">Booked:</td>
+						<td class="pro-table-Info"><%=  %></td>
+
+					</tr>
+					<tr>
+						<td class="pro-table-Title">Guests:</td>
+						<td class="pro-table-Info"><%= %></td>
+
+					</tr>
+					<tr>
+						<td class="pro-table-Title">SEK/week:</td>
+						<td class="pro-table-Info"><%= product.productprice %></td>
+
+					</tr>
+
+				</table>
+			</div>
+			<div>
+
+				<a href="/delete/<%= products._id %>">&#10005</a>
+
+			</div>
+		</div>
+
+		<% }) %>
+
+		<div class="booking-form">
+
+			<div>
+				<% let total = 0 %>
+				<% for (let i = 0; i < products.length; i++) {
+						%> <% total += products[i].productprice %> <% } %>
+				<p class="alignCenter">
+					Totalt pris: <span class="totalPrice"><%= total %> </span>SEK
+				</p>
+			</div>
+
+
+			<form action="" method="post" id="order" class="orderInfo">
+				<input type="text" id="first-name" placeholder="first-name" />
+				<input type="text" id="last-name" placeholder="Lastname" /><br />
+				<input type="text" id="city" placeholder="Street" />
+				<input type="number" id="zip-code" placeholder="Zip code" /><br>
+				<input type="text" id="city" placeholder="City" />
+				<input type="text" id="country" placeholder="Country" /><br>
+
+				<input type="text" id="email" placeholder="Email" />
+				<input type="number" id="phone-number" placeholder="Phone number" />
+			</form>
+			<div>
+				<table>
+
+					<tr>
+						<td class="pro-table-Info" colspan="2"></td>
+					</tr>
+					<tr>
+						<form class="checkboxform">
+							<input type="checkbox" id="confirmcheckbox" name="confirmcheckbox" value="confirm">
+							<label for="confirmcheckboxtext"> Is this booking and your personal information
+								correkt?</label><br>
+
+							<a class="btn-payment" href="/order" role="button"><button type="submit">Go to
+									Payment</i></a>
+
+
+							<!-- <input type="submit" value="Go to Payment"> -->
+						</form>
+					</tr>
+
+
+					<a class="btn-updateuser" href="/updateuser/" role="button"><i class="fa fa-edit"></i></a>
+				</table>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+
+<%- include("footer.ejs") %>
